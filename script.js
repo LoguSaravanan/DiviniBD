@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 triggerSplash();
             }
             count++;
-        }, 750);
+        }, 70);
     });
 
     function triggerSplash() {

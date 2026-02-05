@@ -206,29 +206,39 @@ h3.title {
 
 /* Celebration */
 .card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 1.5rem;
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    /* Even more subtle background */
+    backdrop-filter: blur(15px);
+    padding: 0.8rem;
+    border-radius: 25px;
     text-align: center;
-    max-width: 90%;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    width: 98%;
+    height: 94vh;
+    /* Near full screen height */
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
     z-index: 20;
-    /* Above balloons */
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .birthday-img {
     width: 100%;
-    max-height: 50vh;
-    object-fit: cover;
-    border-radius: 15px;
-    margin-bottom: 1rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    flex: 1;
+    /* Take up all available vertical space */
+    max-height: 85vh;
+    object-fit: contain;
+    /* Keep the 9:16 poem fully visible */
+    border-radius: 18px;
+    margin-bottom: 0.8rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .wish-text {
-    font-size: 2rem;
+    font-size: 1.4rem;
     background: linear-gradient(to right, #ff8a00, #e52e71);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
