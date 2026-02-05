@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (count >= 30) {
                 clearInterval(timer);
-                triggerSplash();
+                setTimeout(triggerSplash, 2000); // 2-second hold on the last name
             }
             count++;
         }, 750);
