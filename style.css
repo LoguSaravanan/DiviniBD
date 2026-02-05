@@ -213,8 +213,8 @@ h3.title {
     border-radius: 25px;
     text-align: center;
     width: 98%;
-    height: 94vh;
-    /* Near full screen height */
+    height: 88vh;
+    /* Reduced from 94vh to fit viewport with browser chrome */
     max-width: 500px;
     display: flex;
     flex-direction: column;
@@ -229,7 +229,8 @@ h3.title {
     width: 100%;
     flex: 1;
     /* Take up all available vertical space */
-    max-height: 85vh;
+    max-height: 75vh;
+    /* Reduced from 85vh to prioritize text visibility */
     object-fit: contain;
     /* Keep the 9:16 poem fully visible */
     border-radius: 18px;
