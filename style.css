@@ -223,6 +223,30 @@ h3.title {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
     z-index: 20;
     border: 1px solid rgba(255, 255, 255, 0.1);
+
+    /* Initial state before animation */
+    opacity: 0;
+    filter: blur(20px);
+}
+
+.screen.active .card {
+    animation: slowFocus 3s ease-out forwards;
+    animation-delay: 0.2s;
+    /* Tiny delay to ensure screen transition starts */
+}
+
+@keyframes slowFocus {
+    0% {
+        opacity: 0;
+        filter: blur(20px);
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: scale(1);
+    }
 }
 
 .birthday-img {
