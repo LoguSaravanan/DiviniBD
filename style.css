@@ -1,0 +1,314 @@
+:root {
+    --primary: #ff4081;
+    --secondary: #7c4dff;
+    --bg-dark: #121212;
+    --text-light: #ffffff;
+    --font-main: 'Outfit', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    height: 100vh;
+    overflow: hidden;
+    /* Prevent scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    padding: 20px;
+}
+
+.screen.active {
+    opacity: 1;
+    pointer-events: all;
+    z-index: 10;
+}
+
+/* Typography */
+h1.title {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h3.title {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.9;
+}
+
+/* Button */
+.primary-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.primary-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 8px rgba(255, 64, 129, 0.3);
+}
+
+/* Countdown & Nicknames */
+.countdown-background-text {
+    position: absolute;
+    font-size: 15rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.05);
+    /* Very faint background */
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.nickname-text {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    z-index: 2;
+    padding: 20px;
+    background: linear-gradient(45deg, #fff, #fff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    word-break: break-word;
+    max-width: 90%;
+    /* Ensure Tamil fonts look good */
+    font-family: 'Outfit', 'Tamil MN', 'Latha', sans-serif;
+}
+
+@keyframes namePop {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.name-animate {
+    animation: namePop 0.4s forwards;
+}
+
+/* Burst / Splash Effect */
+#burst-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.2);
+    /* Reduced overlay darkness */
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.burst-hidden {
+    opacity: 0;
+    display: none !important;
+}
+
+.burst-text {
+    font-size: 5rem;
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 0 30px #ff4081, 0 0 60px #7c4dff;
+    text-align: center;
+    transform: scale(0);
+    animation: burstPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+#confetti-burst-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.confetti-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #FFD700;
+    opacity: 0.9;
+    border-radius: 2px;
+    pointer-events: none;
+    animation: confettiRain var(--duration) var(--delay) linear forwards;
+}
+
+@keyframes confettiRain {
+    0% {
+        transform: translateY(-100px) translateX(0) rotate(0deg) skewX(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) translateX(var(--drift)) rotate(var(--rot)) skewX(20deg);
+        opacity: 0;
+    }
+}
+
+/* Celebration */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 90%;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    z-index: 20;
+    /* Above balloons */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.birthday-img {
+    width: 100%;
+    max-height: 50vh;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.wish-text {
+    font-size: 2rem;
+    background: linear-gradient(to right, #ff8a00, #e52e71);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Balloons - Twitter Style Refinement */
+#balloons-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 100;
+    /* Higher priority */
+}
+
+.balloon-wrapper {
+    position: absolute;
+    bottom: -200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: floatUp 6s ease-in forwards;
+}
+
+.balloon {
+    width: 70px;
+    height: 90px;
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+    position: relative;
+    opacity: 0.85;
+    box-shadow: inset -5px -10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Highlight at top left */
+.balloon::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 20%;
+    height: 25%;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    transform: rotate(-20deg);
+}
+
+/* Knot at base */
+.balloon-knot {
+    width: 12px;
+    height: 8px;
+    background: inherit;
+    margin-top: -2px;
+    border-radius: 2px;
+    position: relative;
+    z-index: 2;
+}
+
+/* String */
+.balloon-string {
+    width: 2px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.5);
+    margin-top: -1px;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-120vh) translateX(40px) scale(1.1);
+        opacity: 0;
+    }
+}

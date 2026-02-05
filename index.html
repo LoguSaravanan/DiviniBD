@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Divini's Birthday Wish</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Audio Elements -->
+    <audio id="birthday-audio" preload="auto" loop>
+        <source src="assets/birthday-song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="countdown-audio" preload="auto" loop>
+        <source src="assets/countdown-music.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="burst-audio" preload="auto">
+        <source src="assets/burst.m4a" type="audio/mpeg">
+    </audio>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Burst Overlay (Splash) -->
+        <div id="burst-overlay" class="burst-hidden">
+            <div id="confetti-burst-container"></div>
+        </div>
+
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen active">
+            <h1 class="title"> ஜோடி நிலவே ! </h1>
+            <h3 class="title"> ஒரு குட்டி Surprise !</h3>
+            <button id="start-btn" class="primary-btn">இந்த பொத்தானை அழுத்தவும்</button>
+        </div>
+
+        <!-- Countdown Screen -->
+        <div id="countdown-screen" class="screen">
+            <div id="countdown-number" class="countdown-background-text">1</div>
+            <div id="nickname" class="nickname-text"></div>
+        </div>
+
+        <!-- Celebration Screen -->
+        <div id="celebration-screen" class="screen">
+            <div class="card">
+                <img src="assets/birthday-image.jpg" alt="Birthday Wish" class="birthday-img">
+                <h1 class="wish-text">Happy Birthday!</h1>
+            </div>
+            <div id="balloons-container"></div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
